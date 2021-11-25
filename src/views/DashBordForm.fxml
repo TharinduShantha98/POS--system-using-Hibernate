@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="755.0" prefWidth="1261.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBordFormController">
+   <children>
+      <Pane prefHeight="755.0" prefWidth="202.0" style="-fx-background-color: #34495e;">
+         <children>
+            <JFXButton alignment="TOP_LEFT" layoutX="4.0" layoutY="208.0" onAction="#goToCustomerOrder" prefHeight="46.0" prefWidth="183.0" text="   Place Order" textFill="#20c517">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SHOPPING_CART" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="8.0" layoutY="266.0" onAction="#goToManageOrderONAction" prefHeight="46.0" prefWidth="183.0" text="  Mange Order" textFill="#20c517">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EXCHANGE" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnAdminLogin" layoutX="10.0" layoutY="695.0" onAction="#adminLoginOnAction" prefHeight="46.0" prefWidth="172.0" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" text="Admin login">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="7.0" layoutY="319.0" onAction="#addCustomerOnAction" prefHeight="48.0" prefWidth="190.0" text="Customer Detail" textFill="#20c517">
+               <graphic>
+                  <FontAwesomeIconView glyphName="GROUP" size="35" wrappingWidth="39.428571701049805" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="12.0" layoutY="387.0" prefHeight="46.0" prefWidth="183.0" text=" Stock" textFill="#20c517">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="CUBES" size="30" />
+               </graphic>
+            </JFXButton>
+            <FontAwesomeIconView fill="#ebe7e7" glyphName="USER" layoutX="80.0" layoutY="52.0" size="40" text="" />
+            <Label fx:id="lblUseName" alignment="CENTER" layoutX="15.0" layoutY="69.0" prefHeight="35.0" prefWidth="163.0" text="User Name" textFill="#fcf5f5">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="context" layoutX="201.0" prefHeight="755.0" prefWidth="1060.0" />
+   </children>
+</AnchorPane>

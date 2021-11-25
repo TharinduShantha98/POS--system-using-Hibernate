@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdministratorFormController">
+   <children>
+      <Pane prefHeight="700.0" prefWidth="246.0" style="-fx-background-color: #2d3436;">
+         <children>
+            <JFXButton fx:id="btnHome" alignment="TOP_LEFT" layoutX="13.0" layoutY="119.0" onAction="#goToHome" prefHeight="43.0" prefWidth="187.0" text="   Home" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="HOME" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="13.0" layoutY="172.0" onAction="#addManageItemsOnAction" prefHeight="43.0" prefWidth="187.0" text="  Manage Items" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="TH" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="13.0" layoutY="226.0" onAction="#mostMovableItem" prefHeight="43.0" prefWidth="213.0" text="  Most  Movable Items" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LEVEL_UP" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="13.0" layoutY="329.0" onAction="#incomeReportOnAction" prefHeight="43.0" prefWidth="187.0" text="  Income report" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="BAR_CHART" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="13.0" layoutY="277.0" onAction="#lessMovableItemsOnAction" prefHeight="43.0" prefWidth="187.0" text="  Less  Movable Items" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LEVEL_DOWN" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="13.0" layoutY="383.0" onAction="#SettingOnAction" prefHeight="43.0" prefWidth="187.0" text="  Setting" textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="GEAR" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnLogOut" alignment="TOP_LEFT" layoutX="17.0" layoutY="435.0" onAction="#gotoDashBordOnAction" prefHeight="43.0" prefWidth="187.0" text="  LOG OUT " textFill="#4ca83e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#c31d1d" glyphName="POWER_OFF" size="30" />
+               </graphic>
+            </JFXButton>
+            <FontAwesomeIconView fill="#ddd4d4" glyphName="USER" layoutX="24.0" layoutY="57.0" size="45" text="" />
+            <Label fx:id="lblUserName" layoutX="74.0" layoutY="26.0" text="User Name" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="homeLoad" layoutX="246.0" prefHeight="700.0" prefWidth="866.0" />
+   </children>
+</AnchorPane>

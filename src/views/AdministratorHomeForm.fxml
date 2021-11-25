@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdministratorHomeFormController">
+   <children>
+      <Label fx:id="lblDate" layoutX="615.0" layoutY="198.0" prefHeight="39.0" prefWidth="181.0" text="2021 -8-18" textFill="#1d36b5">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="562.0" layoutY="117.0" prefHeight="81.0" prefWidth="299.0" text="07 : 29 :34" textFill="#251be1">
+         <font>
+            <Font name="System Bold" size="55.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblTodayOrder" layoutX="232.0" layoutY="512.0" prefHeight="170.0" prefWidth="612.0">
+        <columns>
+          <TableColumn fx:id="colOrderId" prefWidth="114.0" text="odrer ID " />
+          <TableColumn fx:id="colFullDiscount" prefWidth="130.0" text="Full Discount" />
+            <TableColumn fx:id="colTotalQty" prefWidth="172.0" text="Total QTY" />
+            <TableColumn fx:id="colProfit" prefWidth="195.0" text="Profit" />
+        </columns>
+      </TableView>
+      <Pane layoutX="-8.0" prefHeight="103.0" prefWidth="874.0" style="-fx-background-color: #2d3436;">
+         <children>
+            <Label layoutX="32.0" layoutY="19.0" prefHeight="65.0" prefWidth="600.0" text="SuperMarket KDS P.V.T" textFill="#1ec640">
+               <font>
+                  <Font name="Bell MT Bold" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <FontAwesomeIconView fill="#12ab2c" glyphName="LOCATION_ARROW" layoutX="634.0" layoutY="32.0" size="30" text="" />
+      <FontAwesomeIconView fill="#c3ac1a" glyphName="BELL" layoutX="777.0" layoutY="32.0" size="30" />
+      <FontAwesomeIconView fill="#2c20ae" glyphName="FACEBOOK_SQUARE" layoutX="827.0" layoutY="32.0" size="30" text="" />
+      <FontAwesomeIconView fill="#bc1919" glyphName="YOUTUBE_PLAY" layoutX="729.0" layoutY="33.0" size="30" text="" />
+      <FontAwesomeIconView fill="#3cb0ab" glyphName="ENVELOPE" layoutX="678.0" layoutY="32.0" size="30" />
+      <Label layoutX="446.0" layoutY="476.0" prefHeight="21.0" prefWidth="152.0" text="Today Order" textFill="#27c33c">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Pane layoutX="11.0" layoutY="117.0" prefHeight="121.0" prefWidth="198.0" style="-fx-background-color: #eb4d4b; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3px 3px 3px 3px;">
+         <children>
+            <Label layoutX="45.0" layoutY="7.0" prefHeight="31.0" prefWidth="132.0" text=" Daily Profit">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDailyProfit" layoutX="14.0" layoutY="38.0" prefHeight="73.0" prefWidth="119.0" text="100000" textFill="#2525d7">
+               <font>
+                  <Font name="Bodoni MT" size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="136.0" layoutY="53.0" text="LKR">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="258.0" prefHeight="121.0" prefWidth="198.0" style="-fx-background-color: #f0932b; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3px 3px 3px 3px;">
+         <children>
+            <Label layoutX="34.0" layoutY="7.0" prefHeight="31.0" prefWidth="132.0" text="Businnes Profit">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSetTotalProfit" layoutX="14.0" layoutY="24.0" prefHeight="73.0" prefWidth="132.0" text="10000000" textFill="#2525d7">
+               <font>
+                  <Font name="Bodoni MT" size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="146.0" layoutY="41.0" text="LKR">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="398.0" prefHeight="121.0" prefWidth="198.0" style="-fx-background-color: #8c7ae6; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3px 3px 3px 3px;">
+         <children>
+            <Label layoutX="13.0" layoutY="4.0" prefHeight="31.0" prefWidth="132.0" text="Most Profit Item">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMostProfitItemProfit" layoutX="24.0" layoutY="35.0" prefHeight="38.0" prefWidth="111.0" text="1234" textFill="#332bbc">
+               <font>
+                  <Font name="Bodoni MT Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMostItemCode" layoutX="24.0" layoutY="76.0" text="I001">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="36.0" text="LKR">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMostProfitQty" layoutX="128.0" layoutY="76.0" prefHeight="38.0" prefWidth="54.0" text="32">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="99.0" layoutY="64.0" prefHeight="17.0" prefWidth="30.0" text="qty">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="11.0" layoutY="551.0" prefHeight="121.0" prefWidth="198.0" style="-fx-background-color: #0097e6; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3px 3px 3px 3px;">
+         <children>
+            <Label layoutX="33.0" layoutY="7.0" prefHeight="31.0" prefWidth="132.0" text="Employ Count">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="40.0" text="25">
+               <font>
+                  <Font name="System Bold" size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <LineChart fx:id="tblSaleItemTable" layoutX="216.0" layoutY="279.0" prefHeight="187.0" prefWidth="612.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <StackedAreaChart layoutX="232.0" layoutY="118.0" prefHeight="150.0" prefWidth="314.0">
+        <xAxis>
+          <NumberAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </StackedAreaChart>
+   </children>
+</AnchorPane>
