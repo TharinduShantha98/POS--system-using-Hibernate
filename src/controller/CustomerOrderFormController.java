@@ -261,7 +261,7 @@ public class CustomerOrderFormController {
 
 
     public void placeOrderOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-            ArrayList<ItemDetail> items = new ArrayList<>();
+        ArrayList<ItemDetail> items = new ArrayList<>();
         Double total1 = 0.0;
         for (CartTM temp:cartTMObservableList
              ) {

@@ -6,10 +6,16 @@ import dao.custom.ItemDao;
 import dao.custom.OrderDao;
 import dao.custom.OrderDetailDao;
 import db.DbConnection;
+import entity.Item;
 import entity.Order;
 import entity.OrderDetail;
 import model.ItemDetail;
 import model.OrderDTO;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.FactoryConfiguration;
+
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,9 +28,9 @@ public class OrderBOImpl implements OrderBO {
     private  final OrderDetailDao orderDetailDao = (OrderDetailDao) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDERDETAIL);
 
     @Override
-    public  boolean setOrderDetail(OrderDTO order)  {
+    public  boolean setOrderDetail(OrderDTO order) throws SQLException, ClassNotFoundException {
 
-        Connection con = null;
+         /*  Connection con = null;
         try {
             con = DbConnection.getDbConnection().getConnection();
             con.setAutoCommit(false);
@@ -51,13 +57,63 @@ public class OrderBOImpl implements OrderBO {
             e.printStackTrace();
         }
 
-        return false;
+        return false;*/
+
+        ArrayList<ItemDetail> itemArrayList =  order.getItems();
+
+        Order order1 = new Order();
+        order1.setCusId(order.getCusId());
+        order1.setOrderDate(order.getOrderDate());
+        order1.setOrderTime(order.getOrderTime());
+        order1.setOrderId(order.getOrderId());
+        order1.setEmployId(order.getEmployId());
+        order1.setTotalCost(order.getTotalCost());
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+
+        Serializable save = session.save(order1);
+        if(save.equals(order1.getOrderId())){
+            for (ItemDetail temp:itemArrayList) {
+
+                double itemProfit = (getItemProfit(temp.getItemCode()) * temp.getQty()) - temp.getDiscount();
+
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setOrderId(order.getOrderId());
+                orderDetail.setItemCode(temp.getItemCode());
+                orderDetail.setOrderQty(temp.getQty());
+                orderDetail.setItemDiscount(temp.getDiscount());
+                orderDetail.setCost(temp.getTotal());
+                orderDetail.setItemProfit(itemProfit);
+
+                Serializable saveOrderDetail = session.save(orderDetail);
+
+
+                if(saveOrderDetail.equals(orderDetail.getOrderId())){
+                    return true;
+                }else{
+                    return false;
+                }
+
+
+            }
+
+
+        }
+
+        transaction.commit();
+        session.close();
+
+
+        return true;
+
 
     }
 
     @Override
     public  boolean setOrderDetail(ArrayList<ItemDetail> items, String orderId) throws SQLException, ClassNotFoundException {
-        for (ItemDetail temp:items) {
+        /*  for (ItemDetail temp:items) {
 
             double itemProfit = (getItemProfit(temp.getItemCode()) * temp.getQty()) - temp.getDiscount();
 
@@ -71,8 +127,7 @@ public class OrderBOImpl implements OrderBO {
                 return false;
             }
 
-        }
-
+        }*/
 
         return true;
     }

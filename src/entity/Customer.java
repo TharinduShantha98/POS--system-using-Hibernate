@@ -1,6 +1,15 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Entity
 public class Customer {
+    @Id
     private String customerId;
     private String customerTittle;
     private String customerName;
@@ -8,6 +17,8 @@ public class Customer {
     private String city;
     private String Province;
     private String PostalCode;
+
+
 
     public Customer(String customerId, String customerTittle, String customerName, String customerAddress, String city, String province, String postalCode) {
         this.customerId = customerId;
@@ -77,4 +88,5 @@ public class Customer {
     public void setPostalCode(String postalCode) {
         PostalCode = postalCode;
     }
+
 }

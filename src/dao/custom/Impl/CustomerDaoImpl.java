@@ -3,6 +3,10 @@ package dao.custom.Impl;
 import dao.CrudUtil;
 import dao.custom.CustomerDao;
 import entity.Customer;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.FactoryConfiguration;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,9 +14,21 @@ import java.util.ArrayList;
 public class CustomerDaoImpl implements CustomerDao {
     @Override
     public boolean add(Customer customer) throws SQLException, ClassNotFoundException {
-        return  CrudUtil.executeUpdate("INSERT INTO customer VALUES (?,?,?,?,?,?,?)",
+      /*  return  CrudUtil.executeUpdate("INSERT INTO customer VALUES (?,?,?,?,?,?,?)",
                 customer.getCustomerId(),customer.getCustomerTittle(), customer.getCustomerName(),
                 customer.getCustomerAddress(),customer.getCity(),customer.getProvince(),customer.getPostalCode());
+*/
+
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(customer);
+
+        transaction.commit();
+        session.close();
+        return  true;
+
 
     }
 

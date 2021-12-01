@@ -5,6 +5,9 @@ import dao.custom.ItemDao;
 import db.DbConnection;
 import entity.Item;
 import model.ItemDTO;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.FactoryConfiguration;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +36,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item search(String s) throws SQLException, ClassNotFoundException {
+     public  Item search(String s) throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM item WHERE itemCode = ?", s);
         if(resultSet.next()){
             Item item = new Item(resultSet.getString(1),
@@ -48,6 +51,7 @@ public class ItemDaoImpl implements ItemDao {
            return  null;
 
         }
+
     }
 
     @Override

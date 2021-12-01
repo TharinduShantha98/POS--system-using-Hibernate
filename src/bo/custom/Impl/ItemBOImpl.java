@@ -22,9 +22,9 @@ public class ItemBOImpl implements ItemBO {
 
     @Override
     public boolean addItems(ItemDTO item) throws SQLException, ClassNotFoundException {
-        return  itemDao.add(new Item(item.getItemCode(),item.getDescription(),item.getPackSize(),item.getBuyingPrice(),
-                item.getUnitPrice(),item.getItemDiscount(),item.getQtyOnHand()));
-
+       /* return  itemDao.add(new Item(item.getItemCode(),item.getDescription(),item.getPackSize(),item.getBuyingPrice(),
+                item.getUnitPrice(),item.getItemDiscount(),item.getQtyOnHand()));*/
+        return true;
     }
 
     @Override
@@ -36,8 +36,9 @@ public class ItemBOImpl implements ItemBO {
 
     @Override
     public boolean updateItem(ItemDTO item) throws SQLException, ClassNotFoundException {
-        return  itemDao.update(new Item(item.getItemCode(),item.getDescription(),item.getPackSize(),item.getBuyingPrice(),
-                item.getUnitPrice(),item.getItemDiscount(),item.getQtyOnHand()));
+      /*  return  itemDao.update(new Item(item.getItemCode(),item.getDescription(),item.getPackSize(),item.getBuyingPrice(),
+                item.getUnitPrice(),item.getItemDiscount(),item.getQtyOnHand()));*/
+        return true;
     }
 
     @Override

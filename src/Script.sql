@@ -31,6 +31,7 @@ DESC employ;
 
 DROP TABLE  IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order`(
+
         orderId VARCHAR(6),
         orderDate DATE,
         orderTime VARCHAR(15),
@@ -63,13 +64,14 @@ SHOW TABLES;
 
 DROP TABLE  IF EXISTS orderDetail;
 CREATE TABLE IF NOT EXISTS orderDetail(
+    orderDetailId   (6),
     orderId VARCHAR(6),
     itemCode VARCHAR(6),
     orderQty int,
     itemDiscount DOUBLE,
     cost DOUBLE,
     itemProfit DOUBLE,
-    CONSTRAINT PRIMARY KEY (orderId,itemCode),
+    CONSTRAINT PRIMARY KEY (orderId,itemCode,orderDetailId),
     CONSTRAINT FOREIGN KEY (orderId) REFERENCES `order`(orderId) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (itemCode) REFERENCES item(itemCode) ON DELETE CASCADE ON UPDATE CASCADE
 

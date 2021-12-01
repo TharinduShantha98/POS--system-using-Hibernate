@@ -2,29 +2,52 @@ package entity;
 
 import model.ItemDetail;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+@Entity(name = "order")
 public class Order {
 
+    @Id
     private String orderId;
     private String orderDate;
     private String orderTime;
     private String cusId;
     private String employId;
     private Double totalCost;
-    private ArrayList<ItemDetail> items;
 
-    public Order(String orderId, String orderDate, String orderTime, String cusId, String employId, Double totalCost, ArrayList<ItemDetail> items) {
-        this.setOrderId(orderId);
-        this.setOrderDate(orderDate);
-        this.setOrderTime(orderTime);
-        this.setCusId(cusId);
-        this.setEmployId(employId);
-        this.setTotalCost(totalCost);
-        this.setItems(items);
-    }
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetail>  itemList = new ArrayList<>();
+
 
     public Order() {
+    }
+
+    public Order(String orderId, String orderDate, String orderTime,
+                 String cusId, String employId, Double totalCost, List<OrderDetail> itemList) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.cusId = cusId;
+        this.employId = employId;
+        this.totalCost = totalCost;
+        this.itemList = itemList;
+    }
+
+
+    public List<OrderDetail> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<OrderDetail> itemList) {
+        this.itemList = itemList;
     }
 
     public String getOrderId() {
@@ -75,12 +98,11 @@ public class Order {
         this.totalCost = totalCost;
     }
 
-    public ArrayList<ItemDetail> getItems() {
-        return items;
-    }
 
-    public void setItems(ArrayList<ItemDetail> items) {
-        this.items = items;
-    }
+
+    //  private ArrayList<ItemDetail> items;
+
+
+
 
 }
